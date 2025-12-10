@@ -1,24 +1,85 @@
 # Eco Monitoring System
 
-Web application for air pollution monitoring and anomaly detection.
+Вебзастосунок для моніторингу екологічного стану повітря та аналізу аномальних показників.
 
-## Technologies
+Проєкт реалізовано в межах виконання лабораторних робіт з дисципліни
+"Екологічний моніторинг" (варіант 11).
+
+---
+
+## Використані технології
+
 - Node.js
-- Express
+- Express.js
 - MongoDB (Mongoose)
 - React
 - Axios
+- JavaScript (ES6)
 
-## Functionality
-- CRUD operations for air pollution measurements
-- Air quality monitoring table
-- Statistical anomaly detection (PM2.5)
-- REST API
+---
 
-## Laboratory works
-- Lab 1: Backend + MongoDB
-- Lab 2: React frontend
-- Lab 3: Statistical anomaly analysis
+## Структура проєкту
 
-## Author
-Іван Шестакович
+
+---
+
+## Лабораторна робота №1  
+### Створення серверної частини та підключення бази даних
+
+Реалізовано:
+- Node.js + Express сервер
+- Підключення до MongoDB (Atlas) через Mongoose
+- Опис схеми даних Pollution (локація, PM2.5, PM10, дата)
+- CRUD-операції для даних моніторингу:
+  - додавання
+  - перегляд
+  - редагування
+  - видалення
+- REST API:
+  - `GET /api/pollution`
+  - `POST /api/pollution`
+  - `PUT /api/pollution/:id`
+  - `DELETE /api/pollution/:id`
+
+---
+
+## Лабораторна робота №2  
+### Розробка клієнтської частини (React)
+
+Реалізовано:
+- Інтерфейс на React
+- Таблиця для відображення показників забруднення
+- Форма для додавання нових вимірювань
+- Кнопки для видалення записів
+- Взаємодія з бекендом через Axios
+- Розділення логіки на компоненти (`AirTable`)
+
+---
+
+## Лабораторна робота №3 (Варіант 11)  
+### Аналіз аномальних викидів (PM2.5)
+
+Реалізовано:
+- Серверний статистичний аналіз даних за період
+- Обчислення:
+  - середнього значення (mean)
+  - стандартного відхилення (std)
+- Виявлення аномальних значень PM2.5
+  за правилом:
+  
+  \[
+  x \notin [\mu - \sigma;\ \mu + \sigma]
+  \]
+
+- API:
+  - `GET /api/anomaly?days=N`
+- Окремий React-компонент `AnomalyAnalysis`
+- Перемикання сторінок без перезавантаження
+
+---
+
+### Backend
+```bash
+cd eco-backend
+npm install
+npm run dev
